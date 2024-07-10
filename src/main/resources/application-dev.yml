@@ -1,0 +1,9 @@
+spring:
+  datasource:
+
+    url: jdbc:mysql://database-group-3.cfqay6u8sikg.us-east-1.rds.amazonaws.com:3306/database-group-3?useSSL=false&serverTimezone=America/Lima
+    username: admin
+    password: database-group-3
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
