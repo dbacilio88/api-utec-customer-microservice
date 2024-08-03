@@ -69,8 +69,7 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
-src/main/java/utec/bank/api/customer/microservice/customer/domain/port/output/
-
+out/
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
