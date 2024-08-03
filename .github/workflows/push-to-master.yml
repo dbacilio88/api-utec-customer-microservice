@@ -48,7 +48,7 @@ jobs:
 
       # Etapa 5: Construcción y empuje de la imagen Docker
       - name: Build Docker image
-        run: docker build -t api-utec-customer-microservice:latest .
+        run: docker build -t api-utec-customer-microservice:latest -f ../../
 
       - name: Tag Docker image
         run: docker tag api-utec-customer-microservice:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/api-utec-customer-microservice:latest
