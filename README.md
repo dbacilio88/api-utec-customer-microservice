@@ -120,7 +120,9 @@ Este proyecto se trabaja en una arquitectura hexagonal (puertos y adaptadores) +
 ```
 
 # 🚀 Terraform
+
 Module ECR
+
 ```terraform
 resource "aws_ecr_repository" "this" {
   name                 = var.repository_name
@@ -183,7 +185,9 @@ provider "aws" {
 }
 
 ````
+
 Module VPC
+
 ```terraform
 ################################################################################
 # LOCALS
@@ -393,7 +397,9 @@ provider "aws" {
   region = "us-east-1"
 }
 ```
+
 Module EKS
+
 ```terraform
 ################################################################################
 # DATA FOR EKS CLUSTER
@@ -630,6 +636,8 @@ variable "node_groups" {
 |      eks-node      | 1.30 |
 
 ![img_2.png](img_2.png)
+
+![img_4.png](img_4.png)
 
 ```batch
 aws eks --region us-east-1 update-kubeconfig --name cbaciliod-test-eks
