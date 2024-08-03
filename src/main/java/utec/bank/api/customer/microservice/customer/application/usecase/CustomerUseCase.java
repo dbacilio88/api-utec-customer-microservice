@@ -1,6 +1,5 @@
 package utec.bank.api.customer.microservice.customer.application.usecase;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import utec.bank.api.customer.microservice.customer.domain.model.Customer;
@@ -21,12 +20,11 @@ import utec.bank.api.customer.microservice.customer.domain.port.out.ICustomerRep
  * @since 10/07/2024
  */
 @Component
-
 public class CustomerUseCase implements ICustomerUseCase {
 
     private final ICustomerRepositoryPort customerRepositoryPort;
 
-    public CustomerUseCase(@Qualifier("ICustomerRepositoryPort") ICustomerRepositoryPort customerRepositoryPort) {
+    public CustomerUseCase(ICustomerRepositoryPort customerRepositoryPort) {
         this.customerRepositoryPort = customerRepositoryPort;
     }
 
