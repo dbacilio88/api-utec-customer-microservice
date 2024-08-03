@@ -25,21 +25,6 @@ jobs:
           distribution: 'corretto'
       - name: Build with Maven
         run: mvn clean install package
-
-  versioning:
-    runs-on: ubuntu-latest
-    needs: build
-    outputs:
-      version: ${{ steps.version.outputs.version }}
-    steps:
-      - name: Git Semantic Version
-        uses: PaulHatch/semantic-version@v4.0.3
-        with:
-          major_pattern: "major:"
-          minor_pattern: "feat:"
-          format: "v${major}.${minor}.${patch}-prerelease${increment}"
-        id: version
-
   build-image:
     runs-on: ubuntu-latest
     needs: versioning
