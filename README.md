@@ -38,7 +38,7 @@ api-utec-customer-microservice
 | utec-group-eks | 1.30 |
 
 ```batch
-aws eks --region us-east-1 update-kubeconfig --name utec-eks
+aws eks --region us-east-1 update-kubeconfig --name cbaciliod-eks --alias cbaciliod-eks
 kubectl cluster-info
 
 ```
