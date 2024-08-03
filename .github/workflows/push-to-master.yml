@@ -35,6 +35,8 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
         with:
           region: ${{ secrets.AWS_REGION }}
+      - name: List files in the current directory
+        run: ls -al
       - name: Build Docker image
         run: |
           docker build -t api-utec-customer-microservice:latest .
