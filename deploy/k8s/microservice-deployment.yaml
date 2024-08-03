@@ -28,7 +28,7 @@ metadata:
   name: api-utec-customer-service
 spec:
   selector:
-    app: api-utec-customer-service
+    app: api-utec-customer-microservice
   ports:
     - protocol: TCP
       port: 80
