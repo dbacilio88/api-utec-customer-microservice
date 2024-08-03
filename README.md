@@ -630,6 +630,7 @@ variable "node_groups" {
 |      eks-node      | 1.30 |
 
 ![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 
 ```batch
 aws eks --region us-east-1 update-kubeconfig --name cbaciliod-test-eks
@@ -656,6 +657,82 @@ kubectl get nodes
 ```batch
  kubectl get pods
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Install helm
 
