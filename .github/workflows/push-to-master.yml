@@ -10,7 +10,7 @@ on:
 
 permissions:
   contents: write
-  id-token: write  # Asegúrate de incluir esto para usar el token de identidad en pasos posteriores
+  id-token: write
 
 jobs:
   build:
@@ -50,4 +50,4 @@ jobs:
       - name: Deploy to EKS
         run: |
           kubectl apply -f deploy/k8s/microservice-deployment.yaml
-          kubectl rollout status deployment/microservice-deployment --namespace default
+          kubectl rollout status deployment/api-utec-customer-microservice --namespace default
