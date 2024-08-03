@@ -637,7 +637,7 @@ variable "node_groups" {
 
 ![img_2.png](img_2.png)
 
-![img_4.png](img_4.png)
+![img_5.png](img_5.png)
 
 ```batch
 aws eks --region us-east-1 update-kubeconfig --name cbaciliod-test-eks
