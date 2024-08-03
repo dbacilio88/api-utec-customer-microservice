@@ -49,6 +49,11 @@ jobs:
       - name: Deploy to EKS
         run: |
           kubectl apply -f deploy/k8s/microservice-deployment.yaml
+      - name: Install Argo CD CLI
+        run: |
+          curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/download/v2.6.4/argocd-linux-amd64
+          chmod +x argocd
+          sudo mv argocd /usr/local/bin/argocd
       - name: Update Argo CD application
         run: |
           argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }}
