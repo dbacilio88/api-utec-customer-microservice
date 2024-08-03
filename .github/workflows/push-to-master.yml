@@ -57,7 +57,7 @@ jobs:
 
       - name: Build Docker image and Tags
         env:
-          NEW_VERSION: ${{steps.version.outputs.version}}
+          NEW_VERSION: ${{steps.versioning.outputs.version}}
         run: |
           docker build -t 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:$NEW_VERSION .
           docker build -t 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest .
@@ -68,7 +68,7 @@ jobs:
 
       - name: Push Docker image to ECR
         env:
-          NEW_VERSION: ${{steps.version.outputs.version}}
+          NEW_VERSION: ${{steps.versioning.outputs.version}}
         run: |
           echo "New version: $NEW_VERSION"
           docker push 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:$NEW_VERSION
