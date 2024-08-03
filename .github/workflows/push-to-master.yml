@@ -46,11 +46,6 @@ jobs:
           docker push 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest
       #- name: Update kube config
       #  run: aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v1
-        with:
-          version: '1.23.0'
-
       - name: Configure kubectl
         run: |
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
@@ -58,6 +53,7 @@ jobs:
       - name: Deploy to EKS
         run: |
           kubectl apply -f deploy/k8s/microservice-deployment.yaml
+
       - name: Install Argo CD CLI
         run: |
           curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/download/v2.6.4/argocd-linux-amd64
