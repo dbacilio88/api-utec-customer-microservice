@@ -1,10 +1,12 @@
 server:
   port: 8000
-
+  servlet:
+    context-path: /api-utec-customer-microservice/v1
 #spring:
 #  application:
 #    name: ecommerce-shop
 spring:
+
   application:
     name: api-utec-customer-microservice
   jpa:

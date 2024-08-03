@@ -3,37 +3,59 @@
 api-utec-customer-microservice
 
 <!-- TOC -->
+
 * [api-utec-customer-microservice](#api-utec-customer-microservice)
 * [📖 Overview](#-overview)
 * [📑 Prerequisite](#-prerequisite)
 * [🖥️ Technologies](#-technologies)
-  * [Language](#language)
-  * [Architecture](#architecture)
+    * [Language](#language)
+    * [Architecture](#architecture)
 * [⚙️ Spring Boot Dependencies 🧱](#-spring-boot-dependencies-)
 * [🚀 Deploy](#-deploy)
+
 <!-- TOC -->
 
 # 📖 Overview
 
+Este proyecto se trabaja en una arquitectura hexagonal (puertos y adaptadores) + vertical slicing
+
+- Infrastructure puede conocer a Domain y Application.
+
+- Application solo puede conocer a Domain y no a Infrastructure.
+- Domain no conoce a nadie.
+- El acceso a la lógica del dominio desde el exterior está disponible a través de puertos y adaptadores.
+- La arquitectura hexagonal define la parte interna y la externa.
+- Application (exterior), dominio(interior) e infraestructura (exterior)
+- A través de la capa de aplicación, el usuario o cualquier otro programa interactúa con la aplicación.
+- En la capa de dominio, guardamos el código que toca e implementa la lógica de negocios.
+- La capa de infraestructura es la parte que contiene lo que la aplicación necesita para funcionar.
+
 # 📑 Prerequisite
 
-| Name | Version |
-|:----:|:-------:|
-| JDK  |   17    |
+## 🖥️ Technologies y Language
 
-# 🖥️ Technologies
-
-## Language
+|    Name     | Version |
+|:-----------:|:-------:|
+|     JDK     |   17    |
+|    Maven    |  3.9.2  |
+| Spring Boot |  3.3.1  |
+|    MySql    |    8    |
 
 ## Architecture
+
+- Hexagonal
+- ![img_1.png](img_1.png)
 
 # ⚙️ Spring Boot Dependencies 🧱
 
 # 🚀 Deploy
 
-|    Cluster     | eks  |
-|:--------------:|:----:|
-| utec-group-eks | 1.30 |
+|      Cluster       | eks  |
+|:------------------:|:----:|
+| cbaciliod-test-eks | 1.30 |
+|      eks-node      | 1.30 |
+
+![img_2.png](img_2.png)
 
 ```batch
 aws eks --region us-east-1 update-kubeconfig --name cbaciliod-test-eks
@@ -60,6 +82,32 @@ kubectl get nodes
 ```batch
  kubectl get pods
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Install helm
 
