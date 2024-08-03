@@ -3,16 +3,14 @@
 api-utec-customer-microservice
 
 <!-- TOC -->
-
 * [api-utec-customer-microservice](#api-utec-customer-microservice)
 * [📖 Overview](#-overview)
 * [📑 Prerequisite](#-prerequisite)
 * [🖥️ Technologies](#-technologies)
-    * [Language](#language)
-    * [Architecture](#architecture)
+  * [Language](#language)
+  * [Architecture](#architecture)
 * [⚙️ Spring Boot Dependencies 🧱](#-spring-boot-dependencies-)
 * [🚀 Deploy](#-deploy)
-
 <!-- TOC -->
 
 # 📖 Overview
@@ -62,7 +60,9 @@ kubectl get nodes
 ```batch
  kubectl get pods
 ```
+
 Install helm
+
 ```batch
 helm version
 kubectl get all
@@ -76,6 +76,7 @@ kubectl get svc
 kubectl get svc
 
 ```
+
 ```
 $ helm install argocd argo/argo-cd --namespace argocd
 NAME: argocd
@@ -104,6 +105,7 @@ hobC9IamzUf2PtrO
 (You should delete the initial secret afterwards as suggested by the Getting Started Guide: https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
 
 ```
+
 ```
 kubectl get svc -n argocd
 kubectl edit svc argocd-server -n argocd 
@@ -115,8 +117,8 @@ kubectl -n argocd port-forward argocd-server-5f47b9f594-vptt4  8080:8080 --addre
  kubectl -n argocd get deployments.app
 
 ```
-![img.png](img.png)
 
+![img.png](img.png)
 
 ```
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -172,6 +174,7 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
   type: kubernetes.io/tls
 
 ```
+
 ```
 helm repo add jetstack https://charts.jetstack.io
 helm repo update jetstack
