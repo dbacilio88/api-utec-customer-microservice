@@ -27,7 +27,7 @@ jobs:
         run: mvn clean install package
   build-image:
     runs-on: ubuntu-latest
-    needs: versioning
+    needs: build
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
