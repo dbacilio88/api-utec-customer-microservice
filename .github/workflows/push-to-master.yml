@@ -58,6 +58,7 @@ jobs:
       - name: Build Docker image and Tags
         env:
           NEW_VERSION: ${{needs.versioning.outputs.version}}
+          echo "New version: $NEW_VERSION"
         run: |
           docker build -t 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:$NEW_VERSION .
           docker build -t 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest .
