@@ -56,27 +56,21 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
         with:
           region: ${{secrets.AWS_REGION}}
-
       - name: Build Docker image and Tags
         env:
-          NEW_VERSION: ${{needs.versioning.outputs.version}}
+          NEW_VERSION: ${{ needs.versioning.outputs.version }}
           echo "New version: $NEW_VERSION"
         run: |
-        #docker build -t 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:$NEW_VERSION .
           docker build -t api-utec-customer-microservice:latest .
-
       - name: Tag Docker image
         run: |
           docker tag api-utec-customer-microservice:latest 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest
-
       - name: Push Docker image to ECR
         env:
           NEW_VERSION: ${{needs.versioning.outputs.version}}
         run: |
           echo "New version: $NEW_VERSION"
-        #docker push 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:$NEW_VERSION
           docker push 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest
-
 
   deploy-eks:
     runs-on: ubuntu-latest
