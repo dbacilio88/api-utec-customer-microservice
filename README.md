@@ -11,6 +11,7 @@ api-utec-customer-microservice
 * [⚙️ Spring Boot Dependencies 🧱](#-spring-boot-dependencies-)
 * [🚀 Terraform](#-terraform)
 * [🚀 Deploy](#-deploy)
+* [Arquitectura](#arquitectura)
 <!-- TOC -->
 
 # 📖 Overview
@@ -635,6 +636,9 @@ variable "node_groups" {
 | cbaciliod-test-eks | 1.30 |
 |      eks-node      | 1.30 |
 
+# Arquitectura
+
+![img_6.png](img_6.png)
 ![img_2.png](img_2.png)
 
 ![img_5.png](img_5.png)
