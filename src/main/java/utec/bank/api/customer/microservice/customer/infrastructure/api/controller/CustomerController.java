@@ -37,11 +37,6 @@ public class CustomerController {
 
         return new ResponseEntity<>(this.customerService.find(id), HttpStatus.OK);
     }
-
-    @GetMapping(path = "/pod")
-    public ResponseEntity<String> find() {
-        return new ResponseEntity<>("Hello-world", HttpStatus.OK);
-    }
 }
 
 
