@@ -3,8 +3,8 @@ package utec.bank.api.customer.microservice.customer.application.usecase;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import utec.bank.api.customer.microservice.customer.domain.model.Customer;
-import utec.bank.api.customer.microservice.customer.domain.port.in.ICustomerUseCase;
-import utec.bank.api.customer.microservice.customer.domain.port.out.ICustomerRepositoryPort;
+import utec.bank.api.customer.microservice.customer.domain.port.input.ICustomerUseCase;
+import utec.bank.api.customer.microservice.customer.domain.port.output.ICustomerRepositoryPort;
 
 /**
  * CustomerUseCase

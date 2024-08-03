@@ -1,4 +1,4 @@
-package utec.bank.api.customer.microservice.customer.domain.port.in;
+package utec.bank.api.customer.microservice.customer.domain.port.input;
 
 import utec.bank.api.customer.microservice.customer.domain.model.Customer;
 

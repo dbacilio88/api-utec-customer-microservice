@@ -2,7 +2,7 @@ package utec.bank.api.customer.microservice.customer.application.service;
 
 import org.springframework.stereotype.Service;
 import utec.bank.api.customer.microservice.customer.domain.model.Customer;
-import utec.bank.api.customer.microservice.customer.domain.port.in.ICustomerUseCase;
+import utec.bank.api.customer.microservice.customer.domain.port.input.ICustomerUseCase;
 
 /**
  * CustomerService

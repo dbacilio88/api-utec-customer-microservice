@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import utec.bank.api.customer.microservice.customer.domain.model.Customer;
-import utec.bank.api.customer.microservice.customer.domain.port.out.ICustomerRepositoryPort;
+import utec.bank.api.customer.microservice.customer.domain.port.output.ICustomerRepositoryPort;
 import utec.bank.api.customer.microservice.customer.infrastructure.api.mapper.ICustomerMapper;
 import utec.bank.api.customer.microservice.customer.infrastructure.persistence.entity.CustomerEntity;
 import utec.bank.api.customer.microservice.customer.infrastructure.persistence.repository.ICustomerRepository;
