@@ -205,5 +205,5 @@ https://cert-manager.io/docs/usage/ingress/
 
 bxcode@cbaciliod MINGW64 /d/java/utec/api-utec-customer-microservice/deploy (master)
 $
-
+#nxoldd0AMFybfhof
 ```
