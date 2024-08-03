@@ -1,6 +1,6 @@
 name: Continuous Deployment Project
 
-on: 
+on:
   push:
     branches:
       - master
@@ -18,3 +18,28 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
+  semantic-release:
+    needs:
+      - run-unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: actions/setup-node@v3
+        run: |
+        with:
+          node-version: 16
+          cache: npm
+      - name: Run Semantic Release
+        run: |
+          npm ci
+          npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  release:
+    needs:
+      - semantic-release
+    runs-on: ubuntu-latest
+
+
+
