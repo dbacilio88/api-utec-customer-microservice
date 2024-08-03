@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-utec-customer-microservice-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: apps
+    repoURL: https://github.com/dbacilio88/api-utec-customer-microservice.git
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: spring-argocd-app
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
