@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+
 permissions:
   contents: write
 
@@ -13,31 +17,55 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'corretto'
+
       - name: Build with Maven
         run: mvn clean install package
-      - name: Build Docker image
-        run: docker build -t api-utec-customer-microservice:latest .
+
+      - name: Git Semantic Version
+        uses: PaulHatch/semantic-version@v4.0.3
+        with:
+          major_pattern: "major:"
+          minor_pattern: "feat:"
+          format: "v${major}.${minor}.${patch}-prerelease${increment}"
+        id: version
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: ${{secrets.AWS_REGION}}
+
       - name: Log in to ECR
         uses: aws-actions/amazon-ecr-login@v1
         with:
           region: ${{secrets.AWS_REGION}}
-      - name: Tag Docker image
+
+      - name: Build Docker image and Tags
+        env:
+          NEW_VERSION: ${{steps.version.outputs.version}}
         run: |
-          docker tag api-utec-customer-microservice:latest 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest
+          docker build -t 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:$NEW_VERSION .
+          docker build -t 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest .
+
+      #- name: Tag Docker image
+      #  run: |
+      #    docker tag api-utec-customer-microservice:latest 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest
+
       - name: Push Docker image to ECR
+        env:
+          NEW_VERSION: ${{steps.version.outputs.version}}
         run: |
+          echo "New version: $NEW_VERSION"
+          docker push 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:$NEW_VERSION
           docker push 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest
+
       - name: Update kube config
         run: aws eks update-kubeconfig --name ${{secrets.EKS_CLUSTER_NAME}} --region ${{secrets.AWS_REGION}}
       - name: Deploy to EKS
