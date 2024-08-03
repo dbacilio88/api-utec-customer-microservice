@@ -54,18 +54,18 @@ jobs:
         run: |
           kubectl apply -f deploy/k8s/microservice-deployment.yaml
 
-      - name: Install Argo CD CLI
-        run: |
-          curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/download/v2.6.4/argocd-linux-amd64
-          chmod +x argocd
-          sudo mv argocd /usr/local/bin/argocd
-      - name: Update Argo CD application
-        run: |
-          argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
-          argocd app sync api-utec-customer-microservice --async
-          argocd app wait api-utec-customer-microservice
-        env:
-          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
-          ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
-          ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      #- name: Install Argo CD CLI
+      #  run: |
+      #    curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/download/v2.6.4/argocd-linux-amd64
+      #    chmod +x argocd
+      #    sudo mv argocd /usr/local/bin/argocd
+      #- name: Update Argo CD application
+      #  run: |
+      #    argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
+      #    argocd app sync api-utec-customer-microservice --async
+      #    argocd app wait api-utec-customer-microservice
+      #  env:
+      #    ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+      #    ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
+      #    ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
+      #    KUBECONFIG: ${{ secrets.KUBECONFIG }}
