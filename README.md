@@ -3,16 +3,14 @@
 api-utec-customer-microservice
 
 <!-- TOC -->
-
 * [api-utec-customer-microservice](#api-utec-customer-microservice)
 * [📖 Overview](#-overview)
 * [📑 Prerequisite](#-prerequisite)
-* [🖥️ Technologies](#-technologies)
-    * [Language](#language)
-    * [Architecture](#architecture)
+  * [🖥️ Technologies y Language](#-technologies-y-language)
+  * [Architecture](#architecture)
 * [⚙️ Spring Boot Dependencies 🧱](#-spring-boot-dependencies-)
+* [🚀 Terraform](#-terraform)
 * [🚀 Deploy](#-deploy)
-
 <!-- TOC -->
 
 # 📖 Overview
