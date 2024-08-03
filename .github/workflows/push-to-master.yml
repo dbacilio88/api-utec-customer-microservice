@@ -44,8 +44,8 @@ jobs:
       - name: Push Docker image to ECR
         run: |
           docker push 654654431014.dkr.ecr.us-east-1.amazonaws.com/api-utec-customer-microservice:latest
-      #- name: Update kube config
-      #  run: aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
       - name: Configure kubectl
         run: |
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
